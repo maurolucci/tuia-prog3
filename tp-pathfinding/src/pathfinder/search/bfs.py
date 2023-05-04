@@ -41,7 +41,6 @@ class BreadthFirstSearch:
             if node.state == grid.end:
                 return Solution(node, explored)
 
-            # Go right
             neighbours = grid.get_neighbours(node.state)
             for k,n in neighbours.items(): 
                 if n not in explored:
