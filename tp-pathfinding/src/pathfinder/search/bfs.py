@@ -46,13 +46,9 @@ class BreadthFirstSearch:
             # BFS
             successors = grid.get_neighbours(node.state)
             for neighbour in successors:
-
                 new_state = successors[neighbour]
 
-
-                # print(f'valor: {successors[neighbour]}')
                 # Check if the successor is not explored
-                # print(successors[neighbour] not in explored) # True True True True
                 if new_state not in explored:
                     new_node = Node("", new_state,
                                     node.cost + grid.get_cost(new_state),
@@ -70,12 +66,13 @@ class BreadthFirstSearch:
                     # Add the new node to the frontier
                     frontier.add(new_node)
 
-
-
-
-
-
         return NoSolution(explored)
+
+
+
+
+
+
 
 
 # function GRAPH-BFS(problema) return solución o fallo
