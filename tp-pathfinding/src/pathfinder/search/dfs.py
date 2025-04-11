@@ -31,7 +31,7 @@ class DepthFirstSearch:
         explored = {}
 
         # Add the node to the explored dictionary
-        explored[node.state] = True # ESTO VA?
+        # explored[node.state] = True # ESTO VA?
 
         while True:
             #  Fail if the frontier is empty
@@ -42,7 +42,7 @@ class DepthFirstSearch:
             node = frontier.remove()
 
             # Control que evita expandir un estado ya expandido.
-            # if node.state in explored: continue
+            if node.state in explored: continue
 
             # # Add the node to the explored dictionary
             explored[node.state] = True # ESTO VA?
@@ -97,22 +97,3 @@ class DepthFirstSearch:
 #                 n’ ← Nodo(s’, n, a, n.costo + problema.costo-individual(n.estado,a))
 #                 if problema.test-objetivo(s’) then return solución(n’)
 #                 frontera.apilar(n’)
-
-
-# function GRAPH-BFS(problema) return solución o fallo
-#     n₀ ← NODO(problema.estado-inicial, None, None, 0)
-#     expandidos ← {n₀.estado}
-#     if problema.test-objetivo(n₀.estado) then return solución(n₀)
-#     frontera ← Cola()
-#     frontera.encolar(n₀)
-#     do
-#         if frontera.vacía() then return fallo
-#         n ← frontera.desencolar()
-
-#         forall a in problema.acciones(n.estado) do
-#             s’ ← problema.resultado(n.estado, a)
-#             if s’ is not in expandidos then
-#                 n’ ← Nodo(s’, n, a, n.costo + problema.costo-individual(n.estado,a))
-#                 if problema.test-objetivo(s’) then return solución(n’)
-#                 expandidos.insertar(s’)
-#                 frontera.encolar(n’)
