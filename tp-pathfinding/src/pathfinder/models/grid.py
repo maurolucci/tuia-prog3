@@ -81,3 +81,6 @@ class Grid:
 
     def __repr__(self) -> str:
         return f"Grid([[...], ...], {self.start}, {self.end})"
+
+    def manhattan_distance(self, estado, grid):
+        return abs(estado[0] - grid.end[0]) + abs(estado[1] - grid.end[1])
