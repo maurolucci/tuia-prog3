@@ -4,6 +4,7 @@ from ..models.solution import NoSolution, Solution
 from ..models.node import Node
 
 
+
 class BreadthFirstSearch:
     @staticmethod
     def search(grid: Grid) -> Solution:
@@ -20,10 +21,37 @@ class BreadthFirstSearch:
 
         # Initialize reached with the initial state
         reached = {}
-        reached[root.state] = True
+        reached[root.state] = root
 
         # Initialize frontier with the root node
-        # TODO Complete the rest!!
-        # ...
+        frontier = QueueFrontier()
+        frontier.add(root)
 
+        # Main loop
+        while not frontier.is_empty():
+            current_node = frontier.remove()
+            current_state = current_node.state
+
+            # Check if we reached the goal
+            if grid.objective_test(current_state):
+                return Solution(current_node, reached)
+
+            # Expand node
+            for action in grid.actions(current_state):
+                next_state = grid.result(current_state, action)
+
+                if next_state not in reached:
+                    cost = current_node.cost + grid.individual_cost(current_state, action)
+                    next_node = Node(
+                        value="",
+                        state=next_state,
+                        cost=cost,
+                        parent=current_node,
+                        action=action
+                    )
+                    reached[next_state] = next_node
+                    frontier.add(next_node)
+
+        # No solution found
         return NoSolution(reached)
+
