@@ -128,6 +128,8 @@ class Tateti:
         """
         if not self.test_terminal(estado):
             raise ValueError("No se puede calcular utilidad en estado no terminal")
+        if jugador not in (JUGADOR_MAX, JUGADOR_MIN):
+            raise ValueError(f"Jugador inválido: {jugador}")
         
         ganador = self._hay_ganador(estado)
         
