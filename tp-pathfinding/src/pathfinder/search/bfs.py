@@ -23,7 +23,12 @@ class BreadthFirstSearch:
         reached[root.state] = True
 
         # Initialize frontier with the root node
-        # TODO Complete the rest!!
-        # ...
+        frontier = QueueFrontier()
+        frontier.add(root)
 
+        # Main loop
+        while not frontier.is_empty():
+            node = frontier.remove()
+            pass
+        
         return NoSolution(reached)
