@@ -15,7 +15,7 @@ Este proyecto tiene como objetivo enseñar el algoritmo **Minimax** aplicado al 
 ```
 tp-tateti/
 ├── tateti.py           # Formulación del juego (COMPLETO)
-├── estrategias.py      # Estrategias de juego (PARA IMPLEMENTAR)
+├── estrategias.py      # Estrategias de juego (COMPLETO)
 ├── gui_pygame.py       # Interfaz gráfica moderna (COMPLETO)
 ├── main.py             # Punto de entrada de la aplicación (COMPLETO)
 ├── test.py             # Pruebas unitarias (COMPLETO)
@@ -29,20 +29,9 @@ tp-tateti/
 
 Este módulo contiene la **formulación** del tateti según la teoría de juegos.
 
-### 2. `estrategias.py` - Para implementar 🔨
+### 2. `estrategias.py` - Estrategias
 
-**TODO**: Implementar el algoritmo Minimax en este módulo.
-
-#### Funciones a completar:
-
-```python
-def estrategia_minimax(tateti: Tateti, estado: List[List[str]]) -> Tuple[int, int]:
-    """
-    Estrategia minimax: elige la mejor acción usando el algoritmo minimax.
-    ....
-    """
-    # TODO: Implementar algoritmo minimax
-```
+Contiene la estrategia aleatoria y la estrategia `estrategia_minimax`, implementada con las funciones mutuamente recursivas `minimax_max` y `minimax_min`.
 
 ### 3. `main.py` - Interfaz gráfica ✅
 
@@ -98,12 +87,18 @@ python3 test.py
    inicialmente la única estrategia implementada es la aleatoria.
 2. Examina el código en `tateti.py`
 
-### Paso 2: Implementar `estrategia_minimax` en `estrategias.py`
+### Paso 2: Revisar `estrategia_minimax` en `estrategias.py`
 
 ### Paso 3: Probar y Validar
 1. Ejecuta las pruebas: `python3 test.py`
 2. Juega contra tu IA: `python3 main.py`
 3. ¿Es posible ganarle a la IA?
+
+## Respuesta a la pregunta
+
+¿Es posible ganarle a la IA?
+
+No es posible ganarle. Minimax prueba todas las jugadas y supone que el rival juega lo mejor posible, así que lo máximo que se logra contra la IA es empatar.
 
 ## 🔗 Bibliografía
 
